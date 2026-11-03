@@ -31,6 +31,12 @@ The planned module separates Foundry-facing adapters from AI/provider logic and 
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
+## Product roadmap
+
+The planned progression from read-only context access through drafting/staging, approved Foundry publishing, generated-asset provenance, private ChatGPT/MCP access, and future external integrations is recorded in [docs/ROADMAP.md](docs/ROADMAP.md).
+
+These are planned capabilities, not claims of current implementation.
+
 ## Development handoff
 
 Current repository state and the next expected implementation step are tracked in [docs/DEVELOPMENT-HANDOFF.md](docs/DEVELOPMENT-HANDOFF.md).
