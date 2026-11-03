@@ -31,6 +31,7 @@ The stable baseline currently contains:
 - `LICENSE`
 - `.gitignore`
 - `docs/ARCHITECTURE.md`
+- `docs/ROADMAP.md`
 - `docs/DEVELOPMENT-HANDOFF.md`
 
 There is no `module.json`, no scripts, no styles, no templates, no tests, and no released package yet.
@@ -51,11 +52,34 @@ Initial feature direction:
 - support a provider/gateway abstraction
 - preserve a future path for MCP-based external AI access
 
+## Recorded long-term direction
+
+The current product roadmap is in `docs/ROADMAP.md`.
+
+It records the intended staged progression:
+
+1. read-only GM Copilot
+2. draft/staging mode for Foundry Documents and generated assets
+3. approved Foundry publishing through narrow validated write tools
+4. extended integrations such as private ChatGPT/MCP access, Kanka publishing, voice, and controlled server-side diagnostics
+
+The roadmap also records the intended generated-asset pipeline:
+
+```text
+request -> generate -> stage -> record provenance -> preview -> approve -> publish -> bind
+```
+
+Planned provenance includes stable asset IDs, filenames, SHA-256 hashes, timestamps, provider/model metadata, approval metadata, target UUIDs where applicable, and module version information.
+
+Visible branding/signatures may be optional. Provenance should be independent of visible branding.
+
 ## Initial safety boundary
 
 The first runtime development build should be read-only with respect to Foundry world state.
 
 Do not include AI-initiated document mutation, arbitrary macro execution, unrestricted JavaScript execution, filesystem access, or hidden privileged operations in the first baseline.
+
+Future mutation support must distinguish read, draft/stage, and publish/mutate permissions and enforce authorization at the actual operation boundary.
 
 ## Expected first development series
 
