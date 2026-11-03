@@ -49,6 +49,16 @@ The AI may inspect approved context but must not autonomously:
 
 Mutation support, if added later, must use narrowly defined operations, permission validation, user-visible intent, and explicit approval.
 
+## Capability progression
+
+Long-term capabilities are intentionally staged:
+
+1. **Read** - inspect explicitly exposed Foundry context and assist the GM.
+2. **Draft / stage** - prepare Actors, Items, Journals, RollTables, images, and other proposed content without publishing it to the live world.
+3. **Publish / mutate** - perform narrowly defined, validated Foundry writes or asset publication only through explicit tool paths and approval boundaries.
+
+The detailed planned roadmap, asset pipeline, provenance model, and external ChatGPT/MCP direction are documented in [ROADMAP.md](ROADMAP.md).
+
 ## Separation of concerns
 
 Preferred high-level structure:
@@ -130,6 +140,18 @@ External AI client -> controlled MCP bridge -> Foundry
 
 External access must expose explicit tools and resources, not arbitrary access to `game`, `canvas`, the filesystem, or unrestricted JavaScript execution.
 
+## Asset pipeline direction
+
+Image and other generated asset workflows should use a staged pipeline:
+
+```text
+request -> generate -> stage -> record provenance -> preview -> approve -> publish -> bind
+```
+
+The publish layer should use allowlisted destinations. Asset provenance should support stable identifiers, SHA-256 hashes, timestamps, provider/model metadata, approval metadata, target UUIDs where applicable, and module version information.
+
+Visible branding or signatures may be optional. Provenance records should not depend on visible branding.
+
 ## Diagnostics
 
 ZFT diagnostics begin with `[ZFT]`.
@@ -159,6 +181,8 @@ Possible future persisted state may include:
 - client UI preferences
 - conversation metadata
 - user-approved saved prompts or workflows
+- asset provenance records
+- auditable publication metadata
 
 Secrets must not be stored in ordinary client-visible Foundry settings.
 
