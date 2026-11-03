@@ -1,0 +1,45 @@
+# Node / package tooling
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build and test output
+dist/
+build/
+coverage/
+.nyc_output/
+*.log
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# Generated archives
+*.zip
+
+# Local Foundry/runtime data
+Data/
+Config/
+Logs/
+foundrydata/
